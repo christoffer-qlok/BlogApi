@@ -1,7 +1,9 @@
 ﻿using BlogApi.Data;
 using BlogApi.Models;
+using BlogApi.Models.DTO;
 using BlogApi.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace BlogApi.Handlers
 {
@@ -19,7 +21,7 @@ namespace BlogApi.Handlers
             return Results.Json(result);
         }
 
-        public static IResult ViewBlogPost(BlogContext context, int id)
+        public static IResult ViewSingleBlogPost(BlogContext context, int id)
         {
             BlogPost? entity =
                 context.BlogPosts
@@ -29,7 +31,7 @@ namespace BlogApi.Handlers
 
             if (entity == null)
             {
-                return Results.NotFound();
+                return Results.NotFound(new { Message = "No such blog post"});
             }
 
             BlogPostViewModel result = new BlogPostViewModel()
@@ -47,6 +49,19 @@ namespace BlogApi.Handlers
             return Results.Json(result);
         }
 
-
+        public static IResult CreateBlogPost(BlogContext context, BlogPostDto blogPost) 
+        {
+            if(string.IsNullOrEmpty(blogPost.Content) || string.IsNullOrEmpty(blogPost.Title))
+            {
+                return Results.BadRequest(new { Message = "Blog posts needs to have both title and content" });
+            }
+            context.BlogPosts.Add(new BlogPost()
+            {
+                Title = blogPost.Title,
+                Content = blogPost.Content,
+            });
+            context.SaveChanges();
+            return Results.StatusCode((int)HttpStatusCode.Created);
+        }
     }
 }

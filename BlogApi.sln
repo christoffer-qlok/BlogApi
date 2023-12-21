@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApi", "BlogApi\BlogApi.csproj", "{19E8862A-A4D0-47AD-8CDB-8F42E0F1E7B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19E8862A-A4D0-47AD-8CDB-8F42E0F1E7B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E8862A-A4D0-47AD-8CDB-8F42E0F1E7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E8862A-A4D0-47AD-8CDB-8F42E0F1E7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E8862A-A4D0-47AD-8CDB-8F42E0F1E7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79DB7E2F-07F8-4FCB-B25D-872F5BA21035}
+	EndGlobalSection
+EndGlobal
